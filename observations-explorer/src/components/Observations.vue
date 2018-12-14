@@ -81,7 +81,13 @@ export default {
         { label: 'Unit', key: 'unit_id', sortable: true, formatter: this.unitId },
         { label: 'Sequence', key: 'id', sortable: true },
         { label: 'Field', key: 'field', sortable: true },
-        { label: 'POCS Version', key: 'pocs_version', sortable: true },
+        { 
+          label: 'POCS Version', 
+          key: 'pocs_version', 
+          sortable: true, 
+          thClass: 'd-none',
+          tdClass: 'd-none'
+        },
         { label: 'Date', key: 'start_date', sortable: true },
         { label: 'Exp Time', key: 'exp_time', sortable: true },
         { label: 'Image Count', key: 'image_count', sortable: true },
