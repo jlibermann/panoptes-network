@@ -1,0 +1,6 @@
+runtime: python
+env: flex
+entrypoint: gunicorn -b :$PORT --log-config="/app/logging.conf" app:app
+
+runtime_config:
+  python_version: 3

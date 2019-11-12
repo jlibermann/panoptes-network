@@ -92,15 +92,15 @@ def process_mercury_transit(cr2_file, tmp_dir_name):
     <title>{unit_id} {cam_id} {img_time}</title>
   </head>
   <body>
-    <a href="{fits_url}">FITS</a>
-    <img src="{jpg_cropped_url}" width="300"></img>
+    <a href="{fits_url}">FITS</a><br />
+    <img src="{jpg_cropped_url}" width="900"></img>
   </body>
 </html>
     """
     html_path = os.path.join(tmp_dir_name, transit_info_fn.replace('.json', '.html'))
     with open(html_path, 'w') as f:
         f.write(html)
-    upload_blob(html_path, f'{unit_id}.html', bucket_name='www.panoptes-data.net')
+    upload_blob(html_path, f'{unit_id}-{cam_id}.html', bucket_name='www.panoptes-data.net')
 
     return transit_info
 
@@ -113,6 +113,8 @@ def upload_blob(source_file_name, destination_blob_name, bucket_name=BUCKET_NAME
 
     blob.upload_from_filename(source_file_name)
     blob.make_public()
+    blob.cache_control = 'no-cache, max-age=0'
+    blob.update()
 
     print('File {} uploaded to {}.'.format(
         source_file_name,
