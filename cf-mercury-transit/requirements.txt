@@ -1,0 +1,6 @@
+astropy
+Flask
+google-cloud-storage
+matplotlib-base
+numpy
+scipy

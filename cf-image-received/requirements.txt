@@ -1,2 +1,4 @@
 Flask
+google-cloud-storage
+panoptes-utils
 requests

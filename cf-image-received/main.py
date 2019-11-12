@@ -1,8 +1,8 @@
 import os
 from flask import jsonify
 from contextlib import suppress
-
 import requests
+
 
 add_header_endpoint = os.getenv(
     'HEADER_ENDPOINT',
